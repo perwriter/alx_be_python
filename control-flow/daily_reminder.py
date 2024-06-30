@@ -1,38 +1,29 @@
 # daily_reminder.py
 
-def main():
-    # Prompt for task description
-    task = input("Enter your task: ").strip()
+# Prompt the user for the task description, priority level, and time-bound status
+task = input("Enter your task: ")
+priority = input("Priority (high/medium/low): ").lower()
+time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-    # Prompt for priority level
-    priority = input("Priority (high/medium/low): ").strip().lower()
+# Provide a customized reminder based on the priority and time sensitivity
+reminder = f"'{task}' is a {priority} priority task"
 
-    # Prompt for time-bound status
-    time_bound = input("Is it time-bound? (yes/no): ").strip().lower()
+match priority:
+    case 'high':
+        if time_bound == 'yes':
+            reminder += " that requires immediate attention today!"
+        else:
+            reminder += ". Make sure to complete it as soon as possible."
+    case 'medium':
+        if time_bound == 'yes':
+            reminder += " that should be done today."
+        else:
+            reminder += ". Try to complete it soon."
+    case 'low':
+        if time_bound == 'yes':
+            reminder += " that should be done today if possible."
+        else:
+            reminder += ". Consider completing it when you have free time."
 
-    # Generate reminder message based on priority and time-bound status
-    match priority:
-        case "high":
-            priority_message = "high priority task"
-        case "medium":
-            priority_message = "medium priority task"
-        case "low":
-            priority_message = "low priority task"
-        case _:
-            print("Invalid priority level.")
-            return
-
-    # Check if the task is time-bound
-    if time_bound == "yes":
-        reminder = f"Reminder: '{task}' is a {priority_message} that requires immediate attention today!"
-    elif time_bound == "no":
-        reminder = f"Note: '{task}' is a {priority_message}. Consider completing it when you have free time."
-    else:
-        print("Invalid input for time-bound status.")
-        return
-
-    # Print the reminder message
-    print(reminder)
-
-if __name__ == "__main__":
-    main()
+# Print the reminder
+print(f"Reminder: {reminder}")
