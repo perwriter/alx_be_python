@@ -2,7 +2,8 @@
 FAHRENHEIT_TO_CELSIUS_FACTOR = 5 / 9
 CELSIUS_TO_FAHRENHEIT_FACTOR = 9 / 5
 
-
+# Write a function convert_to_celsius(fahrenheit) 
+# that takes a temperature in Fahrenheit and returns the temperature converted to Celsius.
 def convert_to_celsius(fahrenheit):
     """Converts temperature from Fahrenheit to Celsius.
 
@@ -14,7 +15,8 @@ def convert_to_celsius(fahrenheit):
     """
     return (fahrenheit - 32) * FAHRENHEIT_TO_CELSIUS_FACTOR
 
-
+# Write a function convert_to_fahrenheit(celsius) 
+# that takes a temperature in Celsius and returns the temperature converted to Fahrenheit.
 def convert_to_fahrenheit(celsius):
     """Converts temperature from Celsius to Fahrenheit.
 
